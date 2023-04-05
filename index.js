@@ -66,7 +66,12 @@ const zooAnimals = [
   */
 
   function animalNames(zooAnimalsArray){
-   return zooAnimalsArray.forEach(item => item.animal_name)
+   const zooAnimalNames = []
+
+   zooAnimalsArray.forEach(item => {
+    zooAnimalNames.push(`name: ${item.animal_name}, scientific: ${item.scientific_name}`)
+   })
+   return zooAnimalNames
   }
 console.log(animalNames(zooAnimals))
 
@@ -127,9 +132,8 @@ console.log(animalNames(zooAnimals))
   */
 
   function consume(a, b, cb){
-   
+  return cb(a,b)
    }
- console.log(consume)
   
   // 🦁🦁🦁 Step 2: Create several functions to callback with consume(); 🦁🦁🦁
 
@@ -138,11 +142,10 @@ console.log(animalNames(zooAnimals))
  2. Return the sum of those numbers
  */
 
-function add(a, b, cb){
-   cb = function add(){
-     return a + b
-    }
-  }
+function add(a, b){
+   return a + b
+   }
+  console.log(consume(2, 3, add))
 
 /* Use multiply to do the following:
 1. Receive two numbers as an argument that are passed in from its first and second parameters
@@ -150,9 +153,9 @@ function add(a, b, cb){
 */
 
 function multiply(a, b){
-   /*Your Code Here */
+   return a * b
   }
-
+console.log(consume(2, 3, multiply))
 
  /* Use greeting to do the following:
 1. Receive two strings (a first name and last name) as an argument that are passed in from its first and second parameters
@@ -160,10 +163,10 @@ function multiply(a, b){
 💡 NOTE: The string returned must match the format above or the test will not pass!
 */
 
-function greeting(/*Your Code Here */){
-   return /*Your Code Here */
+function greeting(a, b){
+   return `Hello ${a} ${b}, nice to meet you!`
   }
-  
+  console.log(consume("Jose", "Herrera", greeting))
   
 // 🦁🦁🦁 Step 3: Check your work by un-commenting the following calls to consume(): 🦁🦁🦁 
 // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
